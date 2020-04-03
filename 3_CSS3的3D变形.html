@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3的3D变形</title>
+    <style>
+        .stage {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 200px auto;
+            /* 观测距离 */
+            perspective: 300px;
+            ;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: lightpink;
+            /* 加变形 */
+            transform: rotateX(30deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="box"></div>
+    </div>
+</body>
+
+</html>

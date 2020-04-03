@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3动画原理-过渡</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 150px;
+            background-color: rgb(245, 47, 169);
+            margin-bottom: 20px;
+            /* transition */
+            transition: all 3s linear 0s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box"></div>
+    <button id="btn">点击</button>
+</body>
+
+<script>
+    var btn = document.getElementById('btn');
+    var box = document.getElementById('box');
+
+    btn.onclick = function () {
+        box.style.width = '600px';
+        box.style.backgroundColor = 'green';
+    }
+</script>
+
+</html>

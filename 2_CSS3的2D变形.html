@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3的2D变形</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: lightgray;
+            margin: 150px auto;
+            /* transform:变形 */
+
+            /* rotate：选择；deg表示度，顺时针方向 */
+            transform: rotate(30deg);
+        }
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: lightgray;
+            margin: 150px auto;
+            /* transform:变形 */
+            
+            /* skew:斜切 */
+            transform: skew(10deg, 20deg);
+        }
+        .box3 {
+            width: 200px;
+            height: 200px;
+            background-color: lightgray;
+            margin: 150px auto;
+            /* transform:变形 */
+
+            /* 放大缩小至原来的X备（缩小是0-1） */
+            transform: scale(0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+
+</html>
