@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钟表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 表盘 */
+        .dial {
+            width: 400px;
+            height: 400px;
+            border-radius: 200px;
+            border: 10px solid #000;
+            margin: 100px auto;
+            /* 阴影 */
+            box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.5);
+            /* 定位：相对定位 */
+            position: relative;
+        }
+
+        /* 表盘-刻度 */
+        .mark {
+            /* 定位：绝对定位 */
+            position: absolute;
+            width: 10px;
+            height: 40px;
+            background-color: #333;
+            top: 50%;
+            left: 50%;
+            margin-left: -5.5px;
+            margin-top: -20px;
+        }
+
+        /* 时针 */
+        .hourPointer {
+            /* 定位：绝对定位 */
+            position: absolute;
+            width: 15px;
+            height: 100px;
+            background-color: rgb(0, 0, 0);
+            top: 33%;
+            left: 50%;
+            margin-left: -5px;
+            /* 变形：旋转 */
+            /* 如果提供两个，第一个用于横坐标，第二个用于纵坐标。 */
+            transform-origin: 50% 75%;
+            transform: rotate(0deg);
+        }
+
+        /* 分针 */
+        .minPointer {
+            position: absolute;
+            width: 10px;
+            height: 160px;
+            /* background-color: rgb(0, 0, 0); */
+            background-color: yellow;
+            top: 80px;
+            left: 50%;
+            margin-left: -5px;
+            /* 让秒针的75%位置是旋转中心，transform-origin是干嘛的，自己查查 */
+            transform-origin: 50% 75%;
+            transform: rotate(0deg);
+        }
+
+        /* 秒针 */
+        .secondPointer {
+            position: absolute;
+            width: 6px;
+            height: 200px;
+            background-color: rgb(0, 0, 0);
+            top: 50px;
+            left: 50%;
+            margin-left: -5px;
+            transform-origin: 50% 75%;
+            transform: rotate(0deg);
+        }
+
+
+        /* 指针x旋转点 */
+        .curcle {
+            width: 10px;
+            height: 10px;
+            border: 6px solid rgb(250, 4, 4);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -7.5px;
+            margin-left: -7.5px;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dial">
+        <div class="mark"></div>
+        <div class="mark"></div>
+        <div class="mark"></div>
+        <div class="mark"></div>
+        <div class="mark"></div>
+        <div class="mark"></div>
+        <div class="mark"></div>
+        <div class="mark"></div>
+        <div class="mark"></div>
+        <div class="mark"></div>
+        <div class="mark"></div>
+        <div class="mark"></div>
+
+        <div id="hourPointer" class="hourPointer"></div>
+        <div id="minPointer" class="minPointer"></div>
+        <div id="secondPointer" class="secondPointer"></div>
+        <div class="curcle"></div>
+    </div>
+
+    <script>
+        // 得到元素
+        var marks = document.getElementsByClassName('mark');
+        var hour = document.getElementById('hourPointer');
+        var min = document.getElementById('minPointer');
+        var second = document.getElementById('secondPointer');
+
+        // 循环语句：形成锯齿状
+        for (var i = 0; i < 12; i++) {
+            marks[i].style.transform = 'rotate(' + 30 * i + 'deg) translateY(-175px)';
+        }
+
+        // 定时器
+        setInterval(function () {
+            // 获取系统时间
+            var s = new Date().getSeconds();
+            var m = new Date().getMinutes();
+            var h = new Date().getHours();
+
+            // 指针旋转
+            secondPointer.style.transform = 'rotate(' + s * 6 + 'deg)';
+            minPointer.style.transform = 'rotate(' + (m * 6 + s * 0.1) + 'deg)';
+            hourPointer.style.transform = 'rotate(' + (h % 12 * 30 + m * 0.1) + 'deg)';
+
+        }, 1000);
+    </script>
+</body>
+
+</html>

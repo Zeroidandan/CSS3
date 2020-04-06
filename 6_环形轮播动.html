@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>环形轮播动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .stage{
+            width: 108px;
+            height: 192px;
+            /* 观测距离 */
+            perspective: 4000px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .box{
+            width: 108px;
+            height: 192px;
+            position: relative;
+            /* 保留3D */
+            transform-style: preserve-3d;
+            transition: all 1s ease 0s;
+        }
+        .box p{
+            position: absolute;
+        }
+        .box p img{
+            width: 108px;
+            height: 192px;
+        }
+        button{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <button id="btn1">上一张</button>
+        <button id="btn2">下一张</button>
+        <div class="box" id="box">
+            <p><img src="images/1.jpg" alt=""></p>
+            <p><img src="images/2.jpg" alt=""></p>
+            <p><img src="images/3.jpg" alt=""></p>
+            <p><img src="images/4.jpg" alt=""></p>
+            <p><img src="images/5.jpg" alt=""></p>
+            <p><img src="images/6.jpg" alt=""></p>
+            <p><img src="images/7.jpg" alt=""></p>
+            <p><img src="images/8.jpg" alt=""></p>
+            <p><img src="images/9.jpg" alt=""></p>
+        </div>
+    </div>
+
+    <script>
+        var ps = document.getElementsByTagName('p');
+        var box = document.getElementById('box');
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+
+        // 初始排列
+        for (var i = 0; i < 9; i++) {
+            ps[i].style.transform = 'rotateY(' + (i * 40) + 'deg) translateZ(200px)';
+        }
+
+        var deg = 0;
+        // 左按钮监听
+        btn1.onclick = function () {
+            deg += 40;
+            box.style.transform = 'rotateY(' + deg + 'deg)';
+        }
+
+        // 右按钮监听
+        btn2.onclick = function () {
+            deg -= 40;
+            box.style.transform = 'rotateY(' + deg + 'deg)';
+        }
+    </script>
+</body>
+</html>
