@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱前端-异性滚动轮播</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 1200px;
+            height: 500px;
+            margin: 40px auto;
+            background-origin: padding-box;
+            position: relative;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            position: absolute;
+            float: left;
+            font-size: 50px;
+            line-height: 150px;
+            text-align: center;
+            background: url(images/phone.png);
+            /* background-size指定背景大小，以象素或百分比显示。 */
+            /* 当指定为百分比时，大小会由所在区域的宽度、高度，以及background-origin的位置决定。还可以通过cover和contain来对图片进行伸缩。 */
+            background-size: 100% 100%;
+            /* 透明度 */
+            opacity: 0;
+            transition: all .5s ease 0s;
+            bottom: 0;
+        }
+
+        .no0 {
+            width: 70px;
+            height: 148px;
+            left: -70px;
+        }
+
+        .no1 {
+            width: 120px;
+            height: 239px;
+            left: 13%;
+            margin-left: -55px;
+            opacity: 1;
+        }
+
+        .no2 {
+            width: 170px;
+            height: 354px;
+            left: 30%;
+            margin-left: -85px;
+            opacity: 1;
+        }
+
+        .no3 {
+            width: 220px;
+            height: 458px;
+            left: 50%;
+            margin-left: -110px;
+            opacity: 1;
+        }
+
+        .no4 {
+            width: 170px;
+            height: 354px;
+            left: 70%;
+            margin-left: -85px;
+            opacity: 1;
+        }
+        .no5{
+            width: 120px;
+            height: 239px;
+            left: 87%;
+            margin-left: -55px;
+            opacity: 1;
+        }
+       .no6 {
+            width: 70px;
+            height: 148px;
+            left: 100%;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <button id="btn1">上一张</button>
+        <button id="btn2">上一张</button>
+        <ul>
+            <li class="no0">1</li>
+            <li class="no1">2</li>
+            <li class="no2">3</li>
+            <li class="no3">4</li>
+            <li class="no4">5</li>
+            <li class="no5">6</li>
+            <li class="no6">7</li>
+            <li class="">8</li>
+            <li class="">9</li>
+            <li class="">10</li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // 将类放入数组
+        var arr = ['no0', 'no1', 'no2', 'no3', 'no4', 'no5', 'no6', '', '', ''];
+
+        
+        // 得到li
+        var $lis = $('.box li');
+
+         // 节流锁，什么是节流？就是让函数不要快速重复触发
+         var lock = true;
+
+        // 点击右按钮
+        $('#btn2').click(function () {
+            // 如果锁没开，那么就什么都不做
+            if (!lock) return;
+            // 进来了就关锁
+            lock = false;
+            // 设置一个延时器，300毫秒之后再次开锁
+            setTimeout(function () {
+                // 300毫秒之后把锁打开
+                lock = true;
+            }, 300);
+
+            // 队尾删除一项，并且把这项插入到队首
+            arr.push(arr.shift());
+            // 遍历每个li，让每个li成为对应项的类名
+            for (var i = 0; i < 14; i++) {
+                // 让第i个li成为数组中第i项的类名，神奇！
+                $lis.eq(i).attr('class', arr[i]);
+            }
+            console.log(arr);
+        });
+
+
+        // 点击左按钮
+        $('#btn1').click(function () {
+            // 如果锁没开，那么就什么都不做
+            if (!lock) return;
+            // 进来了就关锁
+            lock = false;
+            // 设置一个延时器，300毫秒之后再次开锁
+            setTimeout(function () {
+                // 300毫秒之后把锁打开
+                lock = true;
+            }, 300);
+
+            // 队尾删除一项，并且把这项插入到队首
+            arr.unshift(arr.pop());
+            // 遍历每个li，让每个li成为对应项的类名
+            for (var i = 0; i < 14; i++) {
+                // 让第i个li成为数组中第i项的类名，神奇！
+                $lis.eq(i).attr('class', arr[i]);
+            }
+            console.log(arr);
+        });
+    </script>
+</body>
+
+</html>
