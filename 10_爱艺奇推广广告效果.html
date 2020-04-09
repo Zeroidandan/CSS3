@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱艺奇：推广广告</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 1715px;
+            height: 100px;
+            position: relative;
+            /* border: 3px solid #000; */
+            margin: 150px auto;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            position: absolute;
+            width: 1070px;
+            transition: all 0.4s ease 0s;
+        }
+
+        .s {
+            float: left;
+            margin-right: 5px;
+            transition: all 0.4s ease 0s;
+        }
+
+        .b {
+            float: left;
+            opacity: 0;
+            /* width: 0; */
+            transition: all 0.4s ease 0s;
+        }
+
+        .no0 {
+            left: 0px;
+        }
+
+        .no1 {
+            left: 215px;
+        }
+
+        .no2 {
+            left: 430px;
+        }
+
+        .no3 {
+            left: 645px;
+        }
+
+        .no4 {
+            left: 860px;
+        }
+
+        .no5 {
+            left: 1075px;
+        }
+
+        .no6 {
+            left: 1290px;
+        }
+
+        .no7 {
+            left: 1505px;
+        }
+
+        /* 设置小图-大图-小图规律 */
+        /* z-当前触碰的；z0-左遮盖的；y-碰触li后面显示的；y0-右遮盖的； */
+        ul li.z {
+            /* 提升权重，让left值是最高的权重 */
+            left: 0 !important;
+        }
+
+        ul li.z .b {
+            width: 855px;
+            opacity: 1;
+        }
+
+        ul li.z0 {
+            left: 0 !important;
+        }
+
+        ul li.z0 .b {
+            width: 0px;
+            opacity: 0;
+        }
+
+        /* 左边显示的3个 */
+        ul li.l1 {
+            left: 1075px !important;
+        }
+
+        ul li.l2 {
+            left: 1290px !important;
+        }
+
+        ul li.l3 {
+            left: 1505px !important;
+        }
+
+        ul li.y0 {
+            left: 1720px !important;
+        }
+
+        ul li.y0 .s {
+            width: 0px;
+            opacity: 0;
+        }
+
+        /* 最后三个，触碰的加y1类名 */
+        ul li.y1 {
+            /* left: 215px !important; */
+            left: 645px !important;
+        }
+
+        ul li.y1 .b {
+            width: 855px;
+            opacity: 1;
+        }
+
+        /* 最后三个，触碰的左边三个加y2 */
+        ul li.y2 {
+            /* left: 215px !important; */
+            left: 0 !important;
+        }
+
+        /* 右边显示的3个 */
+        ul li.r1 {
+            left: 0px !important;
+        }
+
+        ul li.r2 {
+            left: 215px !important;
+        }
+
+        ul li.r3 {
+            left: 430px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li class="no0">
+                <div class="s">
+                    <img src="images/ai0.jpg" alt="">
+                </div>
+                <div class="b">
+                    <img src="images/B-ai0.jpg" alt="">
+                </div>
+            </li>
+            <li class="no1">
+                <div class="s">
+                    <img src="images/ai1.jpg" alt="">
+                </div>
+                <div class="b">
+                    <img src="images/B-ai1.jpg" alt="">
+                </div>
+            </li>
+            <li class="no2">
+                <div class="s">
+                    <img src="images/ai2.jpg" alt="">
+                </div>
+                <div class="b">
+                    <img src="images/B-ai2.jpg" alt="">
+                </div>
+            </li>
+            <li class="no3">
+                <div class="s">
+                    <img src="images/ai3.jpg" alt="">
+                </div>
+                <div class="b">
+                    <img src="images/B-ai3.jpg" alt="">
+                </div>
+            </li>
+            <li class="no4">
+                <div class="s">
+                    <img src="images/ai4.jpg" alt="">
+                </div>
+                <div class="b">
+                    <img src="images/B-ai4.jpg" alt="">
+                </div>
+            </li>
+            <li class="no5">
+                <div class="s">
+                    <img src="images/ai5.jpg" alt="">
+                </div>
+                <div class="b">
+                    <img src="images/B-ai5.jpg" alt="">
+                </div>
+            </li>
+            <li class="no6">
+                <div class="s">
+                    <img src="images/ai6.jpg" alt="">
+                </div>
+                <div class="b">
+                    <img src="images/B-ai6.jpg" alt="">
+                </div>
+            </li>
+            <li class="no7">
+                <div class="s">
+                    <img src="images/ai7.jpg" alt="">
+                </div>
+                <div class="b">
+                    <img src="images/B-ai7.jpg" alt="">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // 给li添加触碰事件
+        $('.box ul li').mouseenter(function () {
+            // 得到序号
+            var idx = $(this).index();
+            // console.log(idx);
+            if (idx <= 4) {
+                // 给触碰的添加z类名
+                $(this).addClass('z');
+                // 比它小的添加z0
+                for (var i = 0; i < idx; i++) {
+                    $('.box ul li').eq(i).addClass('z0');
+                }
+                // 比它大3的，添加y
+                $('.box ul li').eq(idx + 1).addClass('l1');
+                $('.box ul li').eq(idx + 2).addClass('l2');
+                $('.box ul li').eq(idx + 3).addClass('l3');
+                // 比它大4的，添加y
+                for (var i = idx + 4; i < 8; i++) {
+                    $('.box ul li').eq(i).addClass('y0');
+                }
+            } else {
+                // 给触碰的添加z类名
+                $(this).addClass('y1');
+                // 比它大的添加y0
+                for (var i = idx + 1; i < 8; i++) {
+                    $('.box ul li').eq(i).addClass('y0');
+                }
+                // 比它小的添加z0
+                for (var i = 0; i < 2; i++) {
+                    $('.box ul li').eq(i).addClass('z0');
+                }
+                // 比它小2的，添加y
+                $('.box ul li').eq(idx - 1).addClass('r3');
+                $('.box ul li').eq(idx - 2).addClass('r2');
+                $('.box ul li').eq(idx - 3).addClass('r1');
+            }
+
+        });
+
+        // 鼠标离开
+        $('.box ul li').mouseleave(function () {
+            for (var i = 0; i < 8; i++) {
+                $('.box ul li').eq(i).attr('class', 'no' + i);
+            }
+        });
+    </script>
+</body>
+
+</html>
