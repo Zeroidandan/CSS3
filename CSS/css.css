@@ -1,0 +1,172 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.f0{
+    height:700px;
+    width: 100%;
+   background-color: bisque;
+    background: url(../images/mi1.jpg) no-repeat;
+}
+.f1{
+    position: relative;
+    height: 900px;
+    background-color: black;
+}
+
+.f1 h2 {
+    position: absolute;
+    left: 50%;
+    margin-left: -510px;
+    top: 150px;
+    font-size: 30px;
+    color: #fff;
+    transform: translateY(-100px);
+    transition: all .8s ease 0s;
+}
+.f1 img{
+    position: absolute;
+    left: 50%;
+    margin-left: -500px;
+    top: 250px;
+    transform: translateY(-100px);
+    transition: all .8s ease 0.5s;
+}
+
+.f1 .actor {
+    opacity: 0;
+}
+
+.f1.cur .actor {
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+.f2{
+    position: relative;
+    height: 1200px;
+    background-color: black;
+}
+.f2 h2{
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    position: relative;
+    top: 80px;
+}
+.f2 .phone1{
+    position: absolute;
+    left: 50%;
+    margin-left: -169px;
+    top: 250px;
+    transition: all .7s cubic-bezier(0.85, 0, 0.85, 0.99) 0s;
+}
+.f2 .phone2{
+    position: absolute;
+    left: 50%;
+    margin-left: -169px;
+    top: 250px;
+    transition: all .7s cubic-bezier(0.85, 0, 0.85, 0.99) 0s;
+}
+.f2 .phone3{
+    position: absolute;
+    left: 50%;
+    margin-left: -169px;
+    top: 250px;
+    transition: all .7s cubic-bezier(0.85, 0, 0.85, 0.99) 0s;
+}
+
+.f2.cur .phone1 {
+    left: 25%;
+}
+
+.f2.cur .phone3{
+    left: 75%;
+}
+
+.f3{
+    position: relative;
+    height: 1200px;
+    background-color: black;
+}
+
+.f3 h2{
+    position: fixed;
+    top: 200px;
+    text-align: center;
+    width: 100%;
+    z-index: 9999;
+    font-size: 88px;
+    color:white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.44);
+    opacity: 0;
+}
+.f3 .f3box{
+    display: none;
+}
+
+.f3.cur .f3box{
+    display: block;
+    width: 100%;
+    height:450px;
+    left: 50%;
+    background: url(../images/mi6.jpg) no-repeat;
+    background-position: center center;
+    background-size: 1920px auto;
+    /* border-radius: 50%; */
+    position: fixed !important;
+}
+
+
+.f4{
+    position: relative;
+    height: 2200px;
+    background-color: black;
+}
+.f4 h2{
+    position: fixed;
+    text-align: center;
+    top: 250px;
+    width: 100%;
+    left: -1200px;
+    z-index: 9999;
+    font-size: 40px;
+    color:white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.44);
+    opacity: 1;
+}
+.f4 img{
+    position: fixed;
+    top: 25px;
+    left: 900px;
+}
+/* .f4 .f4box p{
+    color: crimson;
+    width: 200px;
+    height: 844px;
+    top: 140px;
+    left: 62%;
+    display: block;
+    background: url(../images/mi7.jpg) no-repeat;
+    transform:rotate(-27deg);
+    position: fixed !important;
+} */
+
+.f4.cur .f4box{
+    display: block;
+    position: fixed !important;
+}
+.f4.cur .f4box ul{
+    display: block;
+    position: fixed !important;
+    top: 400px;
+    left: 40%;
+    color: #fff;
+    font-size: 50px;
+    list-style: none;
+}
+.f5{
+    position: relative;
+    height: 1200px;
+    background-color: black;
+}
