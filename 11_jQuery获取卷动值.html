@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery获取卷动值</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .pic{
+            margin: 10px auto;
+        }
+        img{
+            width: 450px;
+            height: 600px;
+        }
+        h2{
+            line-height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pic">
+        <h2>jQuery获取卷动值</h2>
+        <img src="images/1.jpg" alt="">
+        <img src="images/2.jpg" alt="">
+        <img src="images/3.jpg" alt="">
+        <img src="images/4.jpg" alt="">
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // 窗口卷动事件监听
+        $(window).scroll(function(){
+            // 窗口的卷动值
+            console.log($(window).scrollTop());            
+        });
+    </script>
+</body>
+</html>

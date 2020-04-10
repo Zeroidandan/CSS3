@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哔哩哔哩楼层导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .con {
+            width: 1200px;
+            margin: 50px auto;
+        }
+
+        h2 {
+            line-height: 100px;
+            width: 1200px;
+            text-align: center;
+        }
+
+        h4 {
+            height: 80px;
+            line-height: 80px;
+            /* border: 1px solid #000; */
+        }
+
+        .box {
+            width: 900px;
+            height: 400px;
+            background-color: cadetblue;
+        }
+
+        .nav {
+            position: fixed;
+            background-color: darkseagreen;
+            right: 100px;
+            bottom: 190px;
+        }
+
+        .nav ul {
+            list-style: none;
+        }
+
+        .nav ul li {
+            cursor: pointer;
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        .nav ul li.cur {
+            background-color: greenyellow;
+        }
+
+        footer {
+            width: 900px;
+            height: 345px;
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>楼层导航</h2>
+    <div class="con">
+        <h4>直播</h4>
+        <div class="box"></div>
+        <h4>动画</h4>
+        <div class="box"></div>
+        <h4>番剧</h4>
+        <div class="box"></div>
+        <h4>国创</h4>
+        <div class="box"></div>
+        <h4>漫画</h4>
+        <div class="box"></div>
+        <h4>音乐</h4>
+        <div class="box"></div>
+        <h4>舞蹈</h4>
+        <div class="box"></div>
+        <h4>游戏</h4>
+        <div class="box"></div>
+        <h4>科技</h4>
+        <div class="box"></div>
+        <h4>数码</h4>
+        <div class="box"></div>
+        <footer></footer>
+    </div>
+
+    <div class="nav">
+        <ul>
+            <li class="cur">直播</li>
+            <li>动画</li>
+            <li>番剧</li>
+            <li>国创</li>
+            <li>漫画</li>
+            <li>音乐</li>
+            <li>舞蹈</li>
+            <li>游戏</li>
+            <li>科技</li>
+            <li>数码</li>
+        </ul>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // 获取标题h4
+        $h4 = $('h4');
+
+        // 将每一个标题h4的净位置offsetTop存入数组
+        var offsetTop_arr = [];
+
+        $h4.each(function () {
+            offsetTop_arr.push($(this).offset().top)
+        });
+
+        offsetTop_arr.push(Infinity);
+
+        // 当前所在楼层
+        var nowfloor = 0;
+
+        // 监听页面的卷动事件
+        $(window).scroll(function () {
+            var scrollTop = $(window).scrollTop();
+
+            // 遍历数组
+            for (var i = 0; i < offsetTop_arr.length; i++) {
+                if (scrollTop >= offsetTop_arr[i] && scrollTop <= offsetTop_arr[i + 1]) {
+                    break;
+                }
+            }
+            
+            if (nowfloor!=i) {
+                nowfloor=i;
+                $('.nav ul li').eq(nowfloor).addClass('cur').siblings().removeClass('cur');
+            }
+        });
+
+        // 给导航条添加监听
+        $('.nav ul li').click(function(){
+            var idx = $(this).index();
+
+            // 让页面滚动到这里，这是一个固定写法，为了更好的浏览器兼容
+            $('html, body').animate({
+                'scrollTop':offsetTop_arr[idx]
+            }, 300);
+        });
+    </script>
+</body>
+
+</html>

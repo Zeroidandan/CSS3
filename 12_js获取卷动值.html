@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js获取卷动值</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .pic{
+            margin: 10px auto;
+        }
+        img{
+            width: 450px;
+            height: 600px;
+        }
+        h2{
+            line-height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pic">
+        <h2>js获取卷动值</h2>
+        <img src="images/1.jpg" alt="">
+        <img src="images/2.jpg" alt="">
+        <img src="images/3.jpg" alt="">
+        <img src="images/4.jpg" alt="">
+    </div>
+
+    <script>
+        window.onscroll= function(){
+            // document.documentElement表示页面的根元素
+            console.log(document.documentElement.scrollTop);
+        }
+    </script>
+</body>
+</html>
