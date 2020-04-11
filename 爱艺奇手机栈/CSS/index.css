@@ -1,0 +1,271 @@
+/* 媒体查询 */
+html {
+    font-size: 50px;
+    height: 100%;
+}
+
+body {
+    /* font-size: 24px;
+    padding-top: 36px; */
+    position: relative;
+} 
+
+@media screen and (min-width:320px) {
+    html {
+        font-size: 21.33px
+    }
+
+    body {
+        font-size: 12px
+    }
+}
+
+@media screen and (min-width:360px) {
+    html {
+        font-size: 24px
+    }
+
+    body {
+        font-size: 12px
+    }
+}
+
+@media screen and (min-width:375px) {
+    html {
+        font-size: 25px
+    }
+
+    body {
+        font-size: 12px
+    }
+}
+
+@media screen and (min-width:384px) {
+    html {
+        font-size: 25.6px
+    }
+
+    body {
+        font-size: 14px
+    }
+}
+
+@media screen and (min-width:400px) {
+    html {
+        font-size: 26.67px
+    }
+
+    body {
+        font-size: 14px
+    }
+}
+
+@media screen and (min-width:414px) {
+    html {
+        font-size: 27.6px
+    }
+
+    body {
+        font-size: 14px
+    }
+}
+
+@media screen and (min-width:424px) {
+    html {
+        font-size: 28.27px
+    }
+
+    body {
+        font-size: 14px
+    }
+}
+
+@media screen and (min-width:480px) {
+    html {
+        font-size: 32px
+    }
+
+    body {
+        font-size: 15.36px
+    }
+}
+
+@media screen and (min-width:540px) {
+    html {
+        font-size: 36px
+    }
+
+    body {
+        font-size: 17.28px
+    }
+}
+
+@media screen and (min-width:720px) {
+    html {
+        font-size: 48px
+    }
+
+    body {
+        font-size: 23.04px
+    }
+}
+
+@media screen and (min-width:750px) {
+    html {
+        font-size: 50px
+    }
+
+    body {
+        font-size: 24px
+    }
+}
+
+/* 头部 */
+header{
+    /* 固定 */
+    position: fixed;
+    width: 100%;
+    height: 85px;
+    background-image: linear-gradient(to right, rgba(26,47,74), rgba(63,149,142) 98%);
+    display: flex;
+    top: 0;
+    left: 0;
+}
+/* 爱艺奇logo */
+header .logo{
+    width: 55px;
+    height: 45px;   
+    display: flex;
+    /* 居中 */
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+header .logo i{
+    width: 26px;
+    height: 32px;
+    background: url(../images/headerLogo-iqiyi.png) no-repeat;
+    background-size: cover;
+}
+/* 搜索框盒子 */
+header .so{
+    flex: 1;
+    /* padding: 8px 143px 48px 0px; */
+}
+/* 搜索框 */
+header .so .sql_kuang{
+    position: absolute;
+    width: 52%;
+    height: 30px;
+    top: 10px;
+    left: 50px;
+    background-color: rgba(34,79,95);
+    border-radius: 25px;
+}
+/* 搜索框文字 */
+header .so .con{
+    position: absolute;
+    color: rgb(255, 255, 255,0.6);
+    font-size: 14px;
+    top: 5px;
+    left: 10px;
+}
+/* 搜索框icon */
+header .so .sql_logo{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: url(../images/c-channel-all-20200212.png) no-repeat; 
+    background-size: 84px 84px;
+    background-position: 0px -24px;
+    top: 8px;
+    right: 10px;
+}
+/* 右边登录logo */
+header .rlogo{
+    position: absolute;
+    width: 18.5px;
+    height: 18.5px;
+    /* border: 1px solid red; */
+    background: url(../images/c-channel-all-20200212.png) no-repeat; 
+    background-size: 84px 84px;
+    background-position: -17px -24px;
+    top: 13px;
+    right: 105px;
+}
+/* 观看完整版 */
+header .linkimg{
+    position: absolute;
+    width: 73px;
+    height: 23px;
+    top: 10px;
+    right: 12px;
+}
+header .linkimg img{
+    width: 73px;
+    height: 23px;
+}
+/* 第二行 */
+header .row2{
+    position: absolute;
+    width: 100%;
+    top: 45px;
+    left: 0%;
+    height: 40px;
+}
+/* 导航分类 */
+header .row2 .choose{
+    position: absolute;
+    width: 300%;
+    height: 45px;
+    overflow: hidden;
+}
+header .row2 .choose ul{
+    list-style: none;
+    left: 0;
+    padding-left: 10px;
+}
+header .row2 .choose ul li{
+    line-height: 0.5rem;
+    font-size:0.65rem;
+    font-weight: 900;
+    color: #fff;
+    float: left;
+    padding-right: 0.8rem;
+    box-sizing: border-box;
+}
+
+/* 导航分类按钮 */
+header .row2 .choose_menu{
+    position: absolute;
+    width: 39px;
+    height: 36px;
+    right: 0px;
+    background-color: rgb(62,146,140);
+}
+header .row2 .choose_menu .menu{
+    position: absolute;
+    width: 15px;
+    height: 12px;
+    top: 10px;
+    right: 15px;
+    background: url(../images/c-channel-all-20200212.png);
+    background-size: 84px 84px;
+    background-position: -35px -27px;
+}
+
+/* nav轮播图 */
+nav{
+    /* position: absolute; */
+    width: 100%;
+    height: 7.5rem;
+    background-color: violet;
+    overflow: hidden;
+}
+/* 轮播图片 */
+.swiper-container img {
+    width: 100%;
+    height: 100%;
+}
+
+

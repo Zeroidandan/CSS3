@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱奇艺手机端</title>
+    <link rel="stylesheet" href="CSS/index.css">
+    <!-- 清除样式链接 -->
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <!-- swiper加载插件 -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+</head>
+<body>
+    <header>
+        <div class="row1">
+            <div class="logo">
+                <i></i>
+            </div>
+            <div class="so">
+                <div class="sql_kuang">
+                    <span class="con">小猪佩奇</span>
+                    <i class="sql_logo"></i>
+                </div>
+            </div>
+            <div class="rlogo"></div>
+            <div class="linkimg">
+                <a href=""><img src="images/header-rightBtn.png" alt=""></a>
+            </div>
+        </div>
+        <div class="row2">
+            <div class="choose">
+                <ul>
+                    <li>精选</li>
+                    <li>VIP会员</li>
+                    <li>热点</li>
+                    <li>电视剧</li>
+                    <li>电影</li>
+                    <li>儿童</li>
+                    <li>综艺</li>
+                    <li>动漫</li>
+                    <li>直播</li>
+                    <li>资讯</li>
+                    <li>爱艺奇号</li>
+                    <li>娱乐</li>
+                    <li>原创</li>
+                    <li>搞笑</li>
+                    <li>影讯</li>
+                </ul>
+            </div>
+            <div class="choose_menu">
+                <i class="menu"></i>
+            </div>
+        </div>
+    </header>
+    <!-- 轮播图 -->
+    <nav>
+        <!-- swiperhtml结构 -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper" id="banner_pic">
+                <div class="swiper-slide"><img src="images/iqiyi1.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/iqiyi2.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/iqiyi3.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/iqiyi4.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/iqiyi5.jpg" alt=""></div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+            
+            <!-- 如果需要导航按钮 -->
+            <!-- <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div> -->
+            
+            <!-- 如果需要滚动条 -->
+            <!-- <div class="swiper-scrollbar"></div> -->
+        </div>
+    </nav>
+
+     <!-- swiper加载插件 -->
+     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+     <script>
+         // 驱动轮播图
+         var mySwiper = new Swiper('#banner_pic', {
+             // 循环模式
+             loop: true,
+             // 如果需要分页器
+             pagination: {
+                 el: '.swiper-pagination',
+             },
+             // 自动轮播
+             autoplay: {
+                 // 自动间隔
+                 delay: 1000,
+                 // 最后一张不停
+                 stopOnLastSlide: false,
+                 // 当用户拨弄了一下，就停
+                 disableOnInteraction: true,
+             }
+         });
+     </script>
+</body>
+</html>
