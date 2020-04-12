@@ -196,12 +196,13 @@ header .row1 .top .sql .sql_kuang .sql_logo{
 }
 /* 登录人像按钮 */
 header .row1 .top .login{
-    width: 2.34rem;
+    width: 1.94rem;
     height: 1.54rem;
     /* border: 1px solid #000; */
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 header .row1 .top .login i{
     width: 0.829rem;
@@ -263,7 +264,7 @@ header .row2 .choose_menu .menu{
 /* 轮播图 */
 nav #banner{
     width: 100%;
-    height: 8.5rem;
+    height: 7.5rem;
 }
 nav #banner img{
     width: 100%;
