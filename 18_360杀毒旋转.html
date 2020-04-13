@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360杀毒-旋转animate</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .bg{
+            width: 919px;
+            height: 407px;
+            background: url(images/360sd-bg.png) no-repeat;
+            background-color: rgb(59,62,74);
+            margin: 100px auto;
+            position: relative;
+        }
+        .cricle1{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: url(images/360sd-cricle1.png) no-repeat;
+            top: 225px;
+            left: 396px;
+            animation: circle-outer 2s linear infinite;
+        }
+        .cricle2{
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: url(images/360sd-cricle2.png) no-repeat;
+            top: 250px;
+            left: 420px;
+            animation: circle-inner 14s steps(4) both infinite;
+            /* animation: circle-inner 14s linear infinite; */
+        }
+        @keyframes circle-outer{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes circle-inner{
+            0%{
+                transform: rotate(0deg);
+            }
+            25%{
+                transform: rotate(-80deg);
+                /* transition:all 2s ease-in 1s; */
+            }
+            50%{
+                transform: rotate(-160deg);
+                /* transition:all 6s ease-in 1s; */
+            }
+            75%{
+                transform: rotate(-320deg);
+                /* transition:all 9s ease-in 1s; */
+            }
+            100%{
+                transform: rotate(-360deg);
+                /* transition:all 12s ease-in 1s;
+                transition: step-end; */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="cricle1"></div>
+    <div class="cricle2"></div>
+</body>
+</html>
