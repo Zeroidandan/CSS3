@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate特效-手心输入法</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .geometry_rotate{
+            position: relative;
+        }
+        .circle{
+            position: absolute;
+            width: 137px;
+            height: 136px;
+            background: url(http://p1.qhimg.com/d/inn/fb8ddc9c/page.png);
+            background-position: 0 -482px;
+            top: 131px;
+            left: 180px;
+            animation: geometry_rotate 1.5s ease 0s infinite;
+        }
+        .triangle{
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            background: url(http://p1.qhimg.com/d/inn/fb8ddc9c/page.png);
+            background-position: 0 -311px;
+            top: 100px;
+            left: 100px;
+            animation: geometry_rotate 3s ease 1s infinite;
+        }
+        .square{
+            position: absolute;
+            width: 96px;
+            height: 96px;
+            background: url(http://p1.qhimg.com/d/inn/fb8ddc9c/page.png);
+            background-position: 0 -215px;
+            top: 170px;
+            left: 180px;
+            animation: geometry_rotate 2s ease 2s infinite;
+        }
+        /* 几何旋转 transform*/
+        @keyframes geometry_rotate{
+            0%{
+                transform: rotate(0deg);
+            }
+            70%{
+                transform: rotate(360deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        .globe{
+            position: absolute;
+            width: 191px;
+            height: 267px;
+            background: url(http://p1.qhimg.com/d/inn/fb8ddc9c/page.png);
+            background-position: 0 -620px;
+            top: 140px;
+            left: 480px;
+        }
+        .ring{
+            position: absolute;
+            width: 341px;
+            height: 256px;
+            background: url(http://p1.qhimg.com/d/inn/fb8ddc9c/page.png);
+            background-position: 0 -887px;
+            top: 67px;
+            left: 402px;
+            animation: shine 1s ease 0s infinite alternate;
+        }
+        /* 灯泡发光 opacity */
+        @keyframes shine{
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        .line1{
+            width: 156px;
+            height: 153px;
+            background: url(http://p1.qhimg.com/d/inn/fb8ddc9c/page.png);
+            background-position: -239px -220px;
+            position: absolute;
+            top: 67px;
+            left: 1002px;
+            opacity: 1;
+            animation: lines 1s linear 0s infinite;
+        }
+        .line2{
+            width: 156px;
+            height: 153px;
+            background: url(http://p1.qhimg.com/d/inn/fb8ddc9c/page.png);
+            background-position: -139px -220px;
+            position: absolute;
+            top: 67px;
+            left: 1132px;
+            opacity: 1;
+            animation: lines 1s linear 0.5s infinite;
+        }
+        .rocket{
+            width: 225px;
+            height: 220px;
+            background: url(http://p1.qhimg.com/d/inn/fb8ddc9c/page.png);
+            background-position: -239px 0;
+            position: absolute;
+            top: 147px;
+            left: 1000px;
+            animation: rockets 0.3s linear 0s infinite alternate;
+            
+        }
+        /* 线条 */
+        @keyframes lines {
+            0%{
+                opacity: 0;
+                transform: translateX(500px) translateY(-500px);
+            }
+            50%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+                transform: translateX(-500px) translateY(500px);
+            }
+        }
+        /* 火箭 */
+        @keyframes rockets {
+            0%{
+                transform: translateX(-10px) translateY(-10px);
+            }
+            100%{
+                transform: translateX(10px) translateY(10px);
+            }
+        }
+    </style>
+</head>
+<body> 
+    <!-- 几何旋转 -->
+    <div class="geometry_rotate">
+        <div class="circle"></div>
+        <div class="triangle"></div>
+        <div class="square"></div>
+    </div>
+    <!-- 灯泡发光 -->
+    <div class="globe"></div>
+    <div class="ring"></div>
+    <!-- 火箭穿梭 -->
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="rocket"></div>
+</body>
+</html>
